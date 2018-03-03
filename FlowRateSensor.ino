@@ -81,7 +81,6 @@ void loop()
     attachInterrupt(sensorInterrupt, pulseCounter, FALLING);
   }
 }
-
 /*
 Insterrupt Service Routine
  */
