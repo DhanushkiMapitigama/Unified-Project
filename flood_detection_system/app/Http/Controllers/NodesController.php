@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Nodes;
 
 class NodesController extends Controller
 {
@@ -13,7 +14,8 @@ class NodesController extends Controller
      */
     public function index()
     {
-        //
+        $nodes = Nodes::all();
+        return view('nodes.index')->with('nodes', $nodes);
     }
 
     /**
