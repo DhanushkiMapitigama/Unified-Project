@@ -12,6 +12,7 @@
 */
 Route::get('/','PagesController@index');
 Route::get('/level','PagesController@level');
+Route::resource('nodes', 'NodesController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
