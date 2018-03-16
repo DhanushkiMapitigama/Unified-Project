@@ -19,7 +19,7 @@
                 @if(count($nodes) > 0)
                     @foreach($nodes as $node)
                     <tr>
-                        <td>{{$node->station_name}}</td>
+                        <td><a href="/nodes/{{$node->id}}" >{{$node->station_name}}</a></td>
                         <td>{{$node->river}}</td>
                         <td>{{$node->alert_level}}</td>
                         <td>{{$node->minor_level}}</td>
