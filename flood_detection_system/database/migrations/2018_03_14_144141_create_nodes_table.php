@@ -15,6 +15,12 @@ class CreateNodesTable extends Migration
     {
         Schema::create('nodes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('station_name');
+            $table->string('river');
+            $table->float('current_level');
+            $table->float('minor_level');
+            $table->float('major_level');
+            $table->float('alert_level');
             $table->timestamps();
         });
     }
