@@ -7,15 +7,18 @@
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1">
             <div class="jumbotron">
-                Station Name<br>
-                <br>
-                River<br>
-                <br>
-                Alert Level (m) <br><br>
-                Minor Flood Level (m)<br><br>
-                Major Flood Level (m)<br><br>
-                Current Water Level (m)<br><br>
-                Condition
+                {!! Form::open(['action' => 'NodesController@store', 'method' => 'POST']) !!}
+                    <div class="form-group">
+                        {{Form::label('name','Name')}}
+                        {{Form::label('river','River')}}
+                        {{Form::label('alert_level','Alert Level')}}
+                        {{Form::label('minor_flood_level','Minor Flood Level (m)')}}
+                        {{Form::label('major_flood_level','Major Flood Level (m)')}}
+                        {{Form::label('major_flood_level','Major Flood Level (m)')}}
+                        {{Form::label('current_water_level','Current Water Level (m)')}}
+                        {{Form::label('condition','Condition')}}
+                    </div>
+                {!! Form::close() !!}
             </div>
         </div>
     </div>

@@ -36,7 +36,7 @@ class NodesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
