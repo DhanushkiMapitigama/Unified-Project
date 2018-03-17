@@ -55,10 +55,10 @@
                             <a href="#page-top"></a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#about">About</a>
+                            <a class="page-scroll" href="/#about">About</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="/level">Water Level</a>
+                            <a class="page-scroll" href="/nodes">Water Level</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#contact">Contact</a>
