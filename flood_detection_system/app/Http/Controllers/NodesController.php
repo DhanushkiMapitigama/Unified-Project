@@ -25,7 +25,7 @@ class NodesController extends Controller
      */
     public function create()
     {
-        //
+        return view('nodes.create');
     }
 
     /**
@@ -47,7 +47,8 @@ class NodesController extends Controller
      */
     public function show($id)
     {
-        //
+        $node = Nodes::find($id);
+        return view('nodes.nodeview')->with('node', $node);
     }
 
     /**

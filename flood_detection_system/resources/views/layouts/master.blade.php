@@ -12,14 +12,17 @@
         <title>Grayscale - Start Bootstrap Theme</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="jigibigs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{URL::asset('jigibigs/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="jigibigs/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet" type="text/css">
+        <link href="{{URL::asset('jigibigs/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{URL::asset('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700')}}" rel="stylesheet" type="text/css">
 
         <!-- Theme CSS -->
-        <link href="jigibigs/css/grayscale.css" rel="stylesheet">
+        {{--  <link href="jigibigs/css/grayscale.css" rel="stylesheet">  --}}
+        {{--  <link rel="stylesheet" type="text/css" ref="{{ asset('/jigibigs/css/grayscale.css') }}" >  --}}
+
+        <link rel="stylesheet" href="{{URL::asset('jigibigs/css/grayscale.css')}}">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
