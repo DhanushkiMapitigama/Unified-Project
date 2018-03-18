@@ -36,7 +36,14 @@ class NodesController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $this->validate($request, [
+            'name' => 'required',
+            'river' => 'required',
+            'alert_level' => 'required',
+            'minor_flood_level' => 'required',
+            'major_flood_level' => 'required',
+            'current_water_level' => 'required'
+        ]);
     }
 
     /**

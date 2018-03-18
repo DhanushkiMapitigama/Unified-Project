@@ -63,13 +63,17 @@
                         <li>
                             <a class="page-scroll" href="#contact">Contact</a>
                         </li>
+                        <li>
+                            <a href="/nodes/create">Create node</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
             </div>
             <!-- /.container -->
         </nav>
-
+        <img src="{{URL::asset('/img/header.jpg')}}" class="full-width">
+        @include('inc.messages')
         @yield('content')
         <!-- Footer -->
         <footer>
