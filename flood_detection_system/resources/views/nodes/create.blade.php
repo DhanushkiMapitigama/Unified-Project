@@ -6,10 +6,10 @@
             {!! Form::open(['action' => 'NodesController@store', 'method' => 'POST']) !!}
                 <div style="padding:20px;">
                     <div class="col-sm-4" style="text-align:right;">
-                        {{Form::label('name','Station name:')}}
+                        {{Form::label('station_name','Station name:')}}
                     </div>
                     <div class="col-sm-8">
-                        {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Enter the name of the station'])}}
+                        {{Form::text('station_name', '', ['class' => 'form-control', 'placeholder' => 'Enter the name of the station'])}}
                     </div>
                 </div>                
                 <div style="padding:20px;">
@@ -30,26 +30,26 @@
                 </div>                    
                 <div style="padding:20px;">
                     <div class="col-sm-4" style="text-align:right;">
-                        {{Form::label('minor_flood_level','Minor Flood Level (m):')}}
+                        {{Form::label('minor_level','Minor Flood Level (m):')}}
                     </div>
                     <div class="col-sm-8">
-                        {{Form::text('minor_flood_level', '', ['class' => 'form-control', 'placeholder' => 'Enter the alert level'])}}
+                        {{Form::text('minor_level', '', ['class' => 'form-control', 'placeholder' => 'Enter the alert level'])}}
                     </div>
                 </div>                    
                 <div style="padding:20px;">
                     <div class="col-sm-4" style="text-align:right;">
-                        {{Form::label('major_flood_level','Major Flood Level (m):')}}
+                        {{Form::label('major_level','Major Flood Level (m):')}}
                     </div>
                     <div class="col-sm-8">
-                        {{Form::text('major_flood_level', '', ['class' => 'form-control', 'placeholder' => 'Enter the minor fllood level'])}}
+                        {{Form::text('major_level', '', ['class' => 'form-control', 'placeholder' => 'Enter the minor fllood level'])}}
                     </div>
                 </div>                    
                 <div style="padding:20px;">
                     <div class="col-sm-4" style="text-align:right;">
-                        {{Form::label('current_water_level','Current Water Level (m):')}}
+                        {{Form::label('current_level','Current Water Level (m):')}}
                     </div>
                     <div class="col-sm-8">
-                        {{Form::text(' ', '', ['class' => 'form-control', 'placeholder' => 'Enter the current level'])}}
+                        {{Form::text('current_level', '', ['class' => 'form-control', 'placeholder' => 'Enter the current level'])}}
                     </div>
                 </div>  
                 {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}                  
