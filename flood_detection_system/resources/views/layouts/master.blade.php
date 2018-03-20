@@ -31,6 +31,8 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
+        @yield('headscripts')
+
     </head>
 
     <body id="page-top" data-target=".navbar-fixed-top">
@@ -104,6 +106,8 @@
             </div>
         </footer>
 
+        
+
         <!-- jQuery -->
         <script src="{{URL::asset('jigibigs/jquery/jquery.js')}}"></script>
 
@@ -115,6 +119,8 @@
 
         <!-- Theme JavaScript -->
         <script src="{{URL::asset('jigibigs/js/grayscale.min.js')}}"></script>
+
+        @yield('scripts')
 
     </body>
 
