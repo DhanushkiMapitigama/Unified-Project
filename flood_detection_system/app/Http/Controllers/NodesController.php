@@ -119,6 +119,8 @@ class NodesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $node = Nodes::find($id);
+        $node->delete();
+        return redirect('/nodes')->with('success','Node removed');
     }
 }
