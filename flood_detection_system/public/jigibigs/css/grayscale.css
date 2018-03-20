@@ -320,3 +320,13 @@ body {
 .full-width{
     width:100%;
 }
+
+#map-canvas{
+  width: 100%;
+  height: 500px;
+}
+#searchmap{
+  margin-top:20px;
+  width:200px;
+
+}

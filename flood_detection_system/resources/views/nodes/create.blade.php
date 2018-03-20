@@ -1,15 +1,6 @@
 
-    <style>
-        #map-canvas{
-            width: 450px;
-            height: 450px;
-        }
-    </style>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPySDtB9g9PeztbXnvf78Ss8mwefkRAoA&libraries=places"></script>
-
-    
+@extends('layouts.master')
+@section('content')   
     
 <div class="container-fluid" style="background-color:silver;padding:20px">
         <div class="col-lg-10 col-lg-offset-1">
@@ -67,10 +58,11 @@
                         {{Form::text('current_level', '', ['class' => 'form-control', 'placeholder' => 'Enter the current level'])}}
                     </div>
                 </div>  
-                <hr>
+                <br>
+                <div class="clearfix"></div>
                 <div class="form-group">
                         <label for="">Map</label>
-                        <input type ="text" id="searchmap">
+                        <input type ="text" id="searchmap" class="form-control" placeholder="Search node location">
                         <div id="map-canvas"></div>
                     </div>
                 <div class="form-group">
@@ -86,52 +78,17 @@
             {!! Form::close() !!}
         </div>
 </div>
+@endsection
+
+@section('scripts')
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPySDtB9g9PeztbXnvf78Ss8mwefkRAoA&libraries=places"></script>
 
 <script>
-        // var map = new google.maps.Map(document.getElementById('map-canvas'),{
-        //     center:{
-        //         lat: 27.72,
-        //         lng: 85.36
-        //     },
-        //     zoom: 15
-        // });
-    
-        // var marker = new google.maps.Marker({
-        //     position:{
-        //         lat: 27.72,
-        //         lng: 85.36
-        //     },
-        //     map: map,
-        //     draggable: true
-        // });
-    
-        // var searchBox = new google.maps.places.SearchBox(document.getElementById('searchmap'));
-        // google.maps.event.addListner(searchBox,'places_changed',function(){
-        //     var places = searchBox.getPlaces();
-        //     var bounds = new google.maps.LatLngBounds();
-        //     var i, place;
-        //     for(i=0;place=places[i];i++){
-        //         bounds.extend(place.geometry.location);
-        //         marker.setPosition(place.geometry.location);
-        //     }
-        //     map.fitBounds(bounds);
-        //     map.setZoom(15);
-        // });
-    
-        // google.maps.event.addListner(marker,'position_changed',function(){
-        //     var lat = marker.getPosition().lat();
-        //     var lng = marker.getPosition().lng();
-    
-        //     $('#lat').val(lat);
-        //     $('#lng').val(lng);
-        // });
-
-
-        function init() {
+    function init() {
             var map = new google.maps.Map(document.getElementById('map-canvas'), {
                 center: {
-                lat: 12.9715987,
-                lng: 77.59456269999998
+                lat: 5.948022033903074,
+                lng: 80.57189385541983
                 },
                 zoom: 12
             });
@@ -173,3 +130,4 @@
         }
     google.maps.event.addDomListener(window, 'load', init);    
 </script>
+@endsection

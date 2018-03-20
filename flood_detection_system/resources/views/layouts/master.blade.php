@@ -109,8 +109,8 @@
         
 
         <!-- jQuery -->
-        <script src="{{URL::asset('jigibigs/jquery/jquery.js')}}"></script>
-
+        {{--  <script src="{{URL::asset('jigibigs/jquery/jquery.js')}}"></script>  --}}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Bootstrap Core JavaScript -->
         <script src="{{URL::asset('jigibigs/bootstrap/js/bootstrap.min.js')}}"></script>
 
