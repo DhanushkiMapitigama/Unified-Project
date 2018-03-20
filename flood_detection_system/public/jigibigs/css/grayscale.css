@@ -88,6 +88,10 @@ a:focus {
   outline: none;
   background-color: transparent;
 }
+.dropdown li a:hover {
+  background: #01586e !important;
+  color: rgb(255, 250, 250) !important;
+}
 .navbar-custom .nav li a:focus,
 .navbar-custom .nav li a:active {
   outline: none;

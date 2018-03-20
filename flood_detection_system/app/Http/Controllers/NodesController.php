@@ -36,7 +36,25 @@ class NodesController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $this->validate($request, [
+            'station_name' => 'required',
+            'river' => 'required',
+            'alert_level' => 'required',
+            'minor_level' => 'required',
+            'major_level' => 'required',
+            'current_level' => 'required'
+        ]);
+
+        $nodes = new Nodes;
+        $nodes->station_name = $request->input('station_name');
+        $nodes->river = $request->input('river');
+        $nodes->alert_level = $request->input('alert_level');
+        $nodes->minor_level = $request->input('minor_level');
+        $nodes->major_level = $request->input('major_level');
+        $nodes->current_level = $request->input('current_level');
+        $nodes->save();
+
+        return redirect('/nodes')->with('success','Node created');
     }
 
     /**
@@ -59,7 +77,8 @@ class NodesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $node = Nodes::find($id);
+        return view('nodes.edit')->with('node', $node);
     }
 
     /**
@@ -71,7 +90,25 @@ class NodesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'station_name' => 'required',
+            'river' => 'required',
+            'alert_level' => 'required',
+            'minor_level' => 'required',
+            'major_level' => 'required',
+            'current_level' => 'required'
+        ]);
+
+        $nodes = Nodes::find($id);
+        $nodes->station_name = $request->input('station_name');
+        $nodes->river = $request->input('river');
+        $nodes->alert_level = $request->input('alert_level');
+        $nodes->minor_level = $request->input('minor_level');
+        $nodes->major_level = $request->input('major_level');
+        $nodes->current_level = $request->input('current_level');
+        $nodes->save();
+
+        return redirect('/nodes')->with('success','Node updated');
     }
 
     /**
@@ -82,6 +119,8 @@ class NodesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $node = Nodes::find($id);
+        $node->delete();
+        return redirect('/nodes')->with('success','Node removed');
     }
 }

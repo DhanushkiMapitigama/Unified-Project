@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('content')
-<img src="img/header.jpg" class="full-width">
 
 <!-- Intro Header -->
 <div class="container-fluid">
