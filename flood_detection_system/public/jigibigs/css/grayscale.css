@@ -330,3 +330,25 @@ body {
   width:200px;
 
 }
+
+.heading{
+  margin-bottom: 7px;
+  letter-spacing: 0;
+}
+.river{
+  color: #043a67;
+}
+.dash-box {
+  background: #f1c9c9;
+  height: 110px;
+  text-align: center;
+  padding: 6px 0;
+}
+.dash-head {
+  font-weight: 600;
+}
+@media(max-width:768px){
+  #nav-collapsez {
+    background: #31708f;
+  }
+}

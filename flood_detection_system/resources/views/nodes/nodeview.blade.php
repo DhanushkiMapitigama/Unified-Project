@@ -4,7 +4,8 @@
 
 <!-- Intro Header -->
 <div class="container-fluid">
-    <div class="jumbotron">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
         <br>
         @if (Auth::guest())
         @else
@@ -14,28 +15,50 @@
                 {{Form::submit('delete', ['class' => 'btn btn-danger'])}}
             {!!Form::close()!!}
         @endif
+        <h2 class="text-capitalize heading">{{$node->station_name}}</h2>
+        <h3 class="text-capitalize heading river">River: {{$node->river}}</h3>
         <hr>
-        <table class="col-log-4">
-            <td style="width:50%">
-                <h1>Details</h1>
-            </td>
-            <td style="width:50%">
-                <img style="width=100%;" src="/storage/node_images/{{$node->node_image}}">
-            </td>
-        </table>
-        {{--  <div class="well">
-            <div class="row">
-                
-                <div class="col-md-4 col-sm-4">
-                    <img style="width=100%" src="/storage/node_images/{{$node->node_image}}">
-                </div>
-                <div class="col-md-4 col-sm-4">
 
-                    </div>
+        <div class="row">
+            <div class="col-sm-6">
+                   <div class="row">
+                       <div class="col-sm-4">
+                           <div class="dash-box">
+                               <div class="dash-head">Alert Level</div>
+                               <div class="dash-value">{{$node->alert_level}}</div>
+                           </div>
+                       </div>
+                       <div class="col-sm-4">
+                            <div class="dash-box">
+                                <div class="dash-head">Alert Level</div>
+                                <div class="dash-value">{{$node->alert_level}}</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                                <div class="dash-box">
+                                    <div class="dash-head">Alert Level</div>
+                                    <div class="dash-value">{{$node->alert_level}}</div>
+                                </div>
+                            </div>
+      
+                   </div>
+                    <div>Alert level : </div>
+                    <div>Minor flood level : {{$node->minor_level}}</div>
+                    <div>Major flood level : {{$node->major_level}}</div>
+                    <div>Current level : {{$node->current_level}}</div>
+                    <div>Latitude: {{$node->latitude}}</div>
+                    <div>Longitude : {{$node->longitude}}</div>
             </div>
-        </div>  --}}
+            <div class="col-sm-6">
+                    <img class="img-responsive" src="/storage/node_images/{{$node->node_image}}">
+            </div>
+        </div>
+
+
+        
         <br>
         <div id="map-canvas"></div>
+    </div>
     </div>
 </div>
 @endsection

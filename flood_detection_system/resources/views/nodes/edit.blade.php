@@ -1,9 +1,9 @@
 @extends('layouts.master')
 @section('content')
-<!-- Intro Header -->
+
 <div class="container-fluid" style="background-color:silver;padding:20px">
         <div class="col-lg-10 col-lg-offset-1">
-            {!! Form::open(['action' => ['NodesController@update',$node->id], 'method' => 'POST']) !!}
+            {!! Form::open(['action' => ['NodesController@update',$node->id], 'method' => 'POST','files'=> true, 'enctype' => 'multipart/form-data']) !!}
                 <div style="padding:20px;">
                     <div class="col-sm-4" style="text-align:right;">
                         {{Form::label('station_name','Station name:')}}
@@ -52,6 +52,10 @@
                         {{Form::text('current_level', $node->current_level , ['class' => 'form-control', 'placeholder' => 'Enter the current level'])}}
                     </div>
                 </div>  
+                <br>
+                <div class="clearfix"></div>
+                
+
                 {{Form::hidden('_method', 'PUT')}}
                 {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}                  
             {!! Form::close() !!}
