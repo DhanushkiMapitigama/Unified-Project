@@ -8,6 +8,16 @@ use App\Nodes;
 class NodesController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -42,8 +52,27 @@ class NodesController extends Controller
             'alert_level' => 'required',
             'minor_level' => 'required',
             'major_level' => 'required',
-            'current_level' => 'required'
+            'current_level' => 'required',
+            'node_image' => 'image|nullable|max:1999',
+            'latitude' => 'required',
+            'longitude' => 'required'
         ]);
+
+        if($request->hasFile('node_image')){
+            // file name with extension
+            $filenameWithExt = $request->file('node_image')->getClientOriginalName();
+            //file name without ext
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            //extension
+            $extension = $request->file('node_image')->getClientOriginalExtension();
+            //new file name
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //upload image storage->app->public create the folder
+            // run command php artisan storage:link
+            $path = $request->file('node_image')->storeAs('public/node_images', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
 
         $nodes = new Nodes;
         $nodes->station_name = $request->input('station_name');
@@ -52,6 +81,9 @@ class NodesController extends Controller
         $nodes->minor_level = $request->input('minor_level');
         $nodes->major_level = $request->input('major_level');
         $nodes->current_level = $request->input('current_level');
+        $nodes->node_image = $fileNameToStore;
+        $nodes->latitude = $request->input('latitude');
+        $nodes->longitude = $request->input('longitude');
         $nodes->save();
 
         return redirect('/nodes')->with('success','Node created');

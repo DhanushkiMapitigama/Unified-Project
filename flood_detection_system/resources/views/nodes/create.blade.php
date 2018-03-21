@@ -4,7 +4,7 @@
     
 <div class="container-fluid" style="background-color:silver;padding:20px">
         <div class="col-lg-10 col-lg-offset-1">
-            {!! Form::open(['action' => 'NodesController@store', 'method' => 'POST', 'url' => '/nodes/create', 'files'=> true]) !!}
+            {!! Form::open(['action' => 'NodesController@store', 'method' => 'POST',  'files'=> true, 'enctype' => 'multipart/form-data']) !!}
                 <div style="padding:20px;">
                     <div class="col-sm-4" style="text-align:right;">
                         {{Form::label('station_name','Station name:')}}
@@ -64,16 +64,28 @@
                         <label for="">Map</label>
                         <input type ="text" id="searchmap" class="form-control" placeholder="Search node location">
                         <div id="map-canvas"></div>
-                    </div>
-                <div class="form-group">
-                    <label for="">Lat</label>
-                    <input type ="text" class="form-control input-sm" name="lat" id="lat">
                 </div>
-                <div class="form-group">
-                        <label for="">Lng</label> 
-                        <input type ="text" class="form-control input-sm" name="lng" id="lng"> 
+                <div style="padding:20px;">
+                    <div class="col-sm-4" style="text-align:right;">
+                        {{Form::label('longitude','Longitude :')}}
                     </div>
+                    <div class="col-sm-5">
+                        {{Form::text('longitude', '', ['class' => 'form-control', 'id' => 'lng'])}}
+                    </div>
+                </div>  
+                <div style="padding:20px;">
+                    <div class="col-sm-4" style="text-align:right;">
+                        {{Form::label('latitude','Latitude :')}}
+                    </div>
+                    <div class="col-sm-5">
+                        {{Form::text('latitude', '', ['class' => 'form-control', 'id' => 'lat'])}}
+                    </div>
+                </div> 
+                <div class="form-group">
+                    {{Form::file('node_image')}}
+                </div>
                 <hr>
+
                 {{Form::submit('Submit', ['class' => 'btn btn-primary pull-right'])}}                  
             {!! Form::close() !!}
         </div>
