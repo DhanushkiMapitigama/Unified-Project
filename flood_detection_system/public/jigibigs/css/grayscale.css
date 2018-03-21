@@ -319,6 +319,7 @@ body {
 }
 .full-width{
     width:100%;
+    margin-bottom: 30px;
 }
 
 #map-canvas{
@@ -336,19 +337,68 @@ body {
   letter-spacing: 0;
 }
 .river{
-  color: #043a67;
+  color: #a9a9a9;
 }
 .dash-box {
   background: #f1c9c9;
-  height: 110px;
+  max-height: 150px;
   text-align: center;
-  padding: 6px 0;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  border-radius: 8px;
 }
 .dash-head {
   font-weight: 600;
+}
+.dash-value {
+  font-size: 50px;
+  margin-top: 10px;
+}
+.current{
+  padding: 4px 0;
+}
+.current .dash-head{
+  font-size: 18px;
+}
+.current .dash-value{ 
+  font-weight: 500;
+  margin-top: -1px;
+}
+.ultra-light-red{
+  background: #FFCDD2;
+}
+.light-red{
+  background: #EF9A9A;
+}
+.dark-red{
+  background: #E57373;
+}
+.no-risk{
+  background: #AED581;
+}
+.lang-box{
+  background:rgb(167, 167, 167); 
+  padding: 5px 0;
+}
+.lang-box .dash-value{
+  font-size:20px;
 }
 @media(max-width:768px){
   #nav-collapsez {
     background: #31708f;
   }
+}
+
+body{
+  color: #fff !important;
+  background-color: rgb(27, 26, 26);
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+  background-color: #182329;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+
+  border-top: 1px solid #425056;
+  text-align: center;
 }

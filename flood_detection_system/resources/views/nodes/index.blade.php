@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1">
-            <table class="table table-hover">
+            <table class="table table-striped">
                 <tr>
                     <th>Station Name</th>
                     <th>River</th>
@@ -32,6 +32,7 @@
                             @endif
                         </td>
                     </tr>
+                    
                     @endforeach
                 @else
                 <p>No nodes found!</p>

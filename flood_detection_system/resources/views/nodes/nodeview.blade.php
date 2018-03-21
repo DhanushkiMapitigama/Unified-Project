@@ -15,39 +15,58 @@
                 {{Form::submit('delete', ['class' => 'btn btn-danger'])}}
             {!!Form::close()!!}
         @endif
-        <h2 class="text-capitalize heading">{{$node->station_name}}</h2>
-        <h3 class="text-capitalize heading river">River: {{$node->river}}</h3>
+        <h2 class="text-capitalize heading pull-left">{{$node->station_name}}</h2>
+        <h3 class="text-capitalize heading river pull-right">River: {{$node->river}}</h3>
+        <div class="clearfix"></div>
         <hr>
 
         <div class="row">
             <div class="col-sm-6">
                    <div class="row">
                        <div class="col-sm-4">
-                           <div class="dash-box">
+                           <div class="dash-box ultra-light-red">
                                <div class="dash-head">Alert Level</div>
                                <div class="dash-value">{{$node->alert_level}}</div>
                            </div>
                        </div>
                        <div class="col-sm-4">
-                            <div class="dash-box">
-                                <div class="dash-head">Alert Level</div>
-                                <div class="dash-value">{{$node->alert_level}}</div>
+                            <div class="dash-box light-red">
+                                <div class="dash-head">Minor Flood Level</div>
+                                <div class="dash-value">{{$node->minor_level}}</div>
                             </div>
                         </div>
                         <div class="col-sm-4">
-                                <div class="dash-box">
-                                    <div class="dash-head">Alert Level</div>
-                                    <div class="dash-value">{{$node->alert_level}}</div>
+                                <div class="dash-box dark-red">
+                                    <div class="dash-head">Major Flood Level</div>
+                                    <div class="dash-value">{{$node->major_level}}</div>
                                 </div>
-                            </div>
-      
+                        </div>
+                        <div class="col-sm-6">
+                                <div class="dash-box current no-risk">
+                                    <div class="dash-head">Current Level</div>
+                                    <div class="dash-value">{{$node->current_level}}</div>
+                                </div>
+                        </div>     
+                        <div class="col-sm-6">
+                                <div class="dash-box current" style="background:#64B5F6;">
+                                    <div class="dash-head">Current Velocity</div>
+                                    <div class="dash-value">0{{$node->current_velocity}}</div>
+                                </div>
+                        </div>  
+                        <div class="col-sm-6">
+                                <div class="dash-box lang-box"">
+                                    <div class="dash-head">Latitude</div>
+                                    <div class="dash-value">{{$node->latitude}}</div>
+                                </div>
+                        </div>                            
+                        <div class="col-sm-6">
+                                <div class="dash-box lang-box">
+                                    <div class="dash-head">Longitude</div>
+                                    <div class="dash-value">{{$node->longitude}}</div>
+                                </div>
+                        </div>                             
                    </div>
-                    <div>Alert level : </div>
-                    <div>Minor flood level : {{$node->minor_level}}</div>
-                    <div>Major flood level : {{$node->major_level}}</div>
-                    <div>Current level : {{$node->current_level}}</div>
-                    <div>Latitude: {{$node->latitude}}</div>
-                    <div>Longitude : {{$node->longitude}}</div>
+                     
             </div>
             <div class="col-sm-6">
                     <img class="img-responsive" src="/storage/node_images/{{$node->node_image}}">

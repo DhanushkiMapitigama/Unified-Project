@@ -61,7 +61,7 @@
                             <a class="page-scroll" href="/nodes">Water Level</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#contact">Contact</a>
+                            <a class="page-scroll" href="/#contact">Contact</a>
                         </li>
                         @if (Auth::guest())
 
