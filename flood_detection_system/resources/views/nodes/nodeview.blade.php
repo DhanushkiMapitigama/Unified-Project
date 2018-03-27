@@ -6,78 +6,75 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1">
-        <br>
-        @if (Auth::guest())
-        @else
+            <br>
+            <h2 class="text-capitalize heading pull-left">{{$node->station_name}}</h2>
+            <h3 class="text-capitalize heading river pull-right">River: {{$node->river}}</h3>
+            <div class="clearfix"></div>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="dash-box ultra-light-red">
+                                <div class="dash-head">Alert Level</div>
+                                <div class="dash-value">{{$node->alert_level}}</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                                <div class="dash-box light-red">
+                                    <div class="dash-head">Minor Flood Level</div>
+                                    <div class="dash-value">{{$node->minor_level}}</div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                    <div class="dash-box dark-red">
+                                        <div class="dash-head">Major Flood Level</div>
+                                        <div class="dash-value">{{$node->major_level}}</div>
+                                    </div>
+                            </div>
+                            <div class="col-sm-6">
+                                    <div class="dash-box current no-risk">
+                                        <div class="dash-head">Current Level</div>
+                                        <div class="dash-value">{{$node->current_level}}</div>
+                                    </div>
+                            </div>     
+                            <div class="col-sm-6">
+                                    <div class="dash-box current" style="background:#64B5F6;">
+                                        <div class="dash-head">Current Velocity</div>
+                                        <div class="dash-value">0{{$node->current_velocity}}</div>
+                                    </div>
+                            </div>  
+                            <div class="col-sm-6">
+                                    <div class="dash-box lang-box"">
+                                        <div class="dash-head">Latitude</div>
+                                        <div class="dash-value">{{$node->latitude}}</div>
+                                    </div>
+                            </div>                            
+                            <div class="col-sm-6">
+                                    <div class="dash-box lang-box">
+                                        <div class="dash-head">Longitude</div>
+                                        <div class="dash-value">{{$node->longitude}}</div>
+                                    </div>
+                            </div>                             
+                    </div>                        
+                </div>
+                <div class="col-sm-6">
+                        <img class="img-responsive" src="/storage/node_images/{{$node->node_image}}">
+                </div>
+            </div>            
+            <br>
+            <div id="map-canvas"></div>
+            <hr>
+            @if (Auth::guest())
+            @else
             <a href="/nodes/{{$node->id}}/edit" class="btn btn-default">Edit node</a>
             {!!Form::open(['action'=>['NodesController@destroy', $node->id], 'method'=>'POST', 'onsubmit'=>"return confirm('Do you really want to delete?');" , 'class'=>'pull-right'])!!}
                 {{Form::hidden('_method' , 'DELETE')}}
                 {{Form::submit('delete', ['class' => 'btn btn-danger'])}}
             {!!Form::close()!!}
         @endif
-        <h2 class="text-capitalize heading pull-left">{{$node->station_name}}</h2>
-        <h3 class="text-capitalize heading river pull-right">River: {{$node->river}}</h3>
-        <div class="clearfix"></div>
-        <hr>
-
-        <div class="row">
-            <div class="col-sm-6">
-                   <div class="row">
-                       <div class="col-sm-4">
-                           <div class="dash-box ultra-light-red">
-                               <div class="dash-head">Alert Level</div>
-                               <div class="dash-value">{{$node->alert_level}}</div>
-                           </div>
-                       </div>
-                       <div class="col-sm-4">
-                            <div class="dash-box light-red">
-                                <div class="dash-head">Minor Flood Level</div>
-                                <div class="dash-value">{{$node->minor_level}}</div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                                <div class="dash-box dark-red">
-                                    <div class="dash-head">Major Flood Level</div>
-                                    <div class="dash-value">{{$node->major_level}}</div>
-                                </div>
-                        </div>
-                        <div class="col-sm-6">
-                                <div class="dash-box current no-risk">
-                                    <div class="dash-head">Current Level</div>
-                                    <div class="dash-value">{{$node->current_level}}</div>
-                                </div>
-                        </div>     
-                        <div class="col-sm-6">
-                                <div class="dash-box current" style="background:#64B5F6;">
-                                    <div class="dash-head">Current Velocity</div>
-                                    <div class="dash-value">0{{$node->current_velocity}}</div>
-                                </div>
-                        </div>  
-                        <div class="col-sm-6">
-                                <div class="dash-box lang-box"">
-                                    <div class="dash-head">Latitude</div>
-                                    <div class="dash-value">{{$node->latitude}}</div>
-                                </div>
-                        </div>                            
-                        <div class="col-sm-6">
-                                <div class="dash-box lang-box">
-                                    <div class="dash-head">Longitude</div>
-                                    <div class="dash-value">{{$node->longitude}}</div>
-                                </div>
-                        </div>                             
-                   </div>
-                     
-            </div>
-            <div class="col-sm-6">
-                    <img class="img-responsive" src="/storage/node_images/{{$node->node_image}}">
-            </div>
         </div>
-
-
-        
-        <br>
-        <div id="map-canvas"></div>
-    </div>
     </div>
 </div>
 @endsection

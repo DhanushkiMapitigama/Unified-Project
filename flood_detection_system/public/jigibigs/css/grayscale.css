@@ -391,7 +391,7 @@ body {
 
 body{
   color: #fff !important;
-  background-color: rgb(27, 26, 26);
+  background-color: #000;
 }
 
 .table-striped>tbody>tr:nth-of-type(odd) {

@@ -2,7 +2,7 @@
 @extends('layouts.master')
 @section('content')   
     
-<div class="container-fluid" style="background-color:silver;padding:20px">
+<div class="container-fluid" style="padding:20px">
         <div class="col-lg-10 col-lg-offset-1">
             {!! Form::open(['action' => 'NodesController@store', 'method' => 'POST',  'files'=> true, 'enctype' => 'multipart/form-data']) !!}
                 <div style="padding:20px;">
