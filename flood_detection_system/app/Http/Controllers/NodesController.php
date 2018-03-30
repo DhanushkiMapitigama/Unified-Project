@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Nodes;
+use App\River;
+use App\Rivers;
 
 class NodesController extends Controller
 {
@@ -25,7 +27,8 @@ class NodesController extends Controller
     public function index()
     {
         $nodes = Nodes::all();
-        return view('nodes.index')->with('nodes', $nodes);
+        $rivers = Rivers::all();
+        return view('nodes.index')->with('nodes', $nodes)->with('rivers',$rivers);
     }
 
     /**
@@ -35,7 +38,8 @@ class NodesController extends Controller
      */
     public function create()
     {
-        return view('nodes.create');
+        $rivers = Rivers::all()->pluck('river_name', 'river_id');
+        return view('nodes.create')->with('rivers', $rivers);
     }
 
     /**
@@ -49,6 +53,7 @@ class NodesController extends Controller
         $this->validate($request, [
             'station_name' => 'required',
             'river' => 'required',
+            'river2' => 'required',
             'alert_level' => 'required',
             'minor_level' => 'required',
             'major_level' => 'required',
@@ -84,6 +89,7 @@ class NodesController extends Controller
         $nodes->node_image = $fileNameToStore;
         $nodes->latitude = $request->input('latitude');
         $nodes->longitude = $request->input('longitude');
+        $nodes->river_id = $request->input('river2');
         $nodes->save();
 
         return redirect('/nodes')->with('success','Node created');
@@ -110,7 +116,8 @@ class NodesController extends Controller
     public function edit($id)
     {
         $node = Nodes::find($id);
-        return view('nodes.edit')->with('node', $node);
+        $rivers = Rivers::all()->pluck('river_name', 'river_id');
+        return view('nodes.edit')->with('node', $node)->with('rivers', $rivers);
     }
 
     /**
@@ -124,20 +131,16 @@ class NodesController extends Controller
     {
         $this->validate($request, [
             'station_name' => 'required',
-            'river' => 'required',
             'alert_level' => 'required',
             'minor_level' => 'required',
-            'major_level' => 'required',
-            'current_level' => 'required'
+            'major_level' => 'required'
         ]);
 
         $nodes = Nodes::find($id);
         $nodes->station_name = $request->input('station_name');
-        $nodes->river = $request->input('river');
         $nodes->alert_level = $request->input('alert_level');
         $nodes->minor_level = $request->input('minor_level');
         $nodes->major_level = $request->input('major_level');
-        $nodes->current_level = $request->input('current_level');
         $nodes->save();
 
         return redirect('/nodes')->with('success','Node updated');

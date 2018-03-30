@@ -19,7 +19,15 @@
                     @foreach($nodes as $node)
                     <tr>
                         <td><a href="/nodes/{{$node->id}}" >{{$node->station_name}}</a></td>
-                        <td>{{$node->river}}</td>
+                        <td>
+                            @foreach($rivers as $river)
+                                @if($river->river_id == $node->river_id)
+                                    {{$river->river_name}}
+                                @else
+                                @endif
+                            @endforeach
+                            
+                        </td>
                         <td>{{$node->alert_level}}</td>
                         <td>{{$node->minor_level}}</td>
                         <td>{{$node->major_level}}</td>

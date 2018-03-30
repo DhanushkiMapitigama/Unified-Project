@@ -11,15 +11,7 @@
                     <div class="col-sm-8">
                         {{Form::text('station_name', $node->station_name , ['class' => 'form-control', 'placeholder' => 'Enter the name of the station'])}}
                     </div>
-                </div>                
-                <div style="padding:20px;">
-                    <div class="col-sm-4" style="text-align:right;">
-                        {{Form::label('river','River:')}}
-                        </div>
-                        <div class="col-sm-8">
-                        {{Form::text('river', $node->river, ['class' => 'form-control', 'placeholder' => 'River'])}}
-                    </div>
-                </div>
+                </div>               
                 <div style="padding:20px;">
                     <div class="col-sm-4" style="text-align:right;">
                         {{Form::label('alert_level','Alert Level:')}}
@@ -44,14 +36,7 @@
                         {{Form::text('major_level', $node->major_level , ['class' => 'form-control', 'placeholder' => 'Enter the minor fllood level'])}}
                     </div>
                 </div>                    
-                <div style="padding:20px;">
-                    <div class="col-sm-4" style="text-align:right;">
-                        {{Form::label('current_level','Current Water Level (m):')}}
-                    </div>
-                    <div class="col-sm-8">
-                        {{Form::text('current_level', $node->current_level , ['class' => 'form-control', 'placeholder' => 'Enter the current level'])}}
-                    </div>
-                </div>  
+               
                 <br>
                 <div class="clearfix"></div>
                 

@@ -25,6 +25,15 @@
                 <br>
                 <div style="padding:20px;">
                     <div class="col-sm-4" style="text-align:right;">
+                        {{Form::label('river2','River:')}}
+                    </div>
+                    <div class="col-sm-5" style="color:black">
+                        {{ Form::select( 'river2', $rivers                           
+                        )}}
+                </div>
+                <br>
+                <div style="padding:20px;">
+                    <div class="col-sm-4" style="text-align:right;">
                         {{Form::label('alert_level','Alert Level:')}}
                     </div>
                     <div class="col-sm-5">
