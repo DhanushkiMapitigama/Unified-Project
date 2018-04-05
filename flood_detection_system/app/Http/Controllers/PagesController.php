@@ -12,7 +12,4 @@ class PagesController extends Controller
     public function level(){
         return view('pages.waterLevel');
     }
-    public function riverview(){
-        
-    }
 }
