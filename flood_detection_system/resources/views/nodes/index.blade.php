@@ -13,6 +13,7 @@
                     <th>Minor Flood<br>Level (m)</th>
                     <th>Major Flood<br>Level (m)</th>
                     <th>Current Water<br>Level (m)</th>
+                    <th>Velocity (m/s) </th>
                     <th>Condition</th>
                 </tr>
                 @if(count($nodes) > 0)
@@ -31,13 +32,35 @@
                         <td>{{$node->alert_level}}</td>
                         <td>{{$node->minor_level}}</td>
                         <td>{{$node->major_level}}</td>
-                        <td>{{$node->current_level}}</td>
                         <td>
-                            @if($node->current_level >= $node->alert_level)
-                                Flood
-                            @else
-                                Normal
-                            @endif
+                            @foreach($data as $singledata)
+                                @if($singledata->node_id == $node->id)
+                                    {{$singledata->current_level}}
+                                @else
+                                @endif
+                            @endforeach
+                            
+                        </td>
+                        <td>
+                            @foreach($data as $singledata)
+                                @if($singledata->node_id == $node->id)
+                                    {{$singledata->velocity}}
+                                @else
+                                @endif
+                            @endforeach
+                            
+                        </td>
+                        <td>
+                            @foreach($data as $singledata)
+                                @if($singledata->node_id == $node->id)
+                                    @if($singledata->current_level >= $node->alert_level)
+                                        Flood
+                                    @else
+                                        Normal
+                                    @endif
+                                @else
+                                @endif
+                            @endforeach
                         </td>
                     </tr>
                     

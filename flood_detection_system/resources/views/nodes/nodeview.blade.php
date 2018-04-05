@@ -8,7 +8,14 @@
         <div class="col-lg-10 col-lg-offset-1">
             <br>
             <h2 class="text-capitalize heading pull-left">{{$node->station_name}}</h2>
-            <h3 class="text-capitalize heading river pull-right">River: {{$node->river}}</h3>
+            <h3 class="text-capitalize heading river pull-right">River: 
+                @foreach($rivers as $river)
+                    @if($river->river_id == $node->river_id)
+                        {{$river->river_name}}
+                    @else
+                    @endif
+                @endforeach
+            </h3>
             <div class="clearfix"></div>
             <hr>
 
@@ -36,13 +43,27 @@
                             <div class="col-sm-6">
                                     <div class="dash-box current no-risk">
                                         <div class="dash-head">Current Level</div>
-                                        <div class="dash-value">{{$node->current_level}}</div>
+                                        <div class="dash-value">
+                                        @foreach($data as $singledata)
+                                            @if($singledata->node_id == $node->id)
+                                                {{$singledata->current_level}}
+                                            @else
+                                            @endif
+                                        @endforeach
+                                        </div>
                                     </div>
                             </div>     
                             <div class="col-sm-6">
                                     <div class="dash-box current" style="background:#64B5F6;">
                                         <div class="dash-head">Current Velocity</div>
-                                        <div class="dash-value">0{{$node->current_velocity}}</div>
+                                        <div class="dash-value">
+                                            @foreach($data as $singledata)
+                                                @if($singledata->node_id == $node->id)
+                                                    {{$singledata->velocity}}
+                                                @else
+                                                @endif
+                                            @endforeach
+                                        </div>
                                     </div>
                             </div>  
                             <div class="col-sm-6">
