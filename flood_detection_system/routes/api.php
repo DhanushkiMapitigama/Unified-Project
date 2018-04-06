@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//List nodes
+Route::get('nodes', 'NodesController@index');
+
+//single node
+Route::get('nodes/{id}', 'NodesController@show');
