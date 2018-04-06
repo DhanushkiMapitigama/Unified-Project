@@ -37,7 +37,7 @@
                         {{Form::label('minor_level','Minor Flood Level (m):')}}
                     </div>
                     <div class="col-sm-5">
-                        {{Form::text('minor_level', '', ['class' => 'form-control', 'placeholder' => 'Enter the alert level'])}}
+                        {{Form::text('minor_level', '', ['class' => 'form-control', 'placeholder' => 'Enter the minor flood level'])}}
                     </div>
                 </div>    
                 <br>                
@@ -46,7 +46,7 @@
                         {{Form::label('major_level','Major Flood Level (m):')}}
                     </div>
                     <div class="col-sm-5">
-                        {{Form::text('major_level', '', ['class' => 'form-control', 'placeholder' => 'Enter the minor fllood level'])}}
+                        {{Form::text('major_level', '', ['class' => 'form-control', 'placeholder' => 'Enter the major fllood level'])}}
                     </div>
                 </div>
                 <br>
@@ -71,10 +71,16 @@
                     <div class="col-sm-5">
                         {{Form::text('latitude', '', ['class' => 'form-control', 'id' => 'lat'])}}
                     </div>
-                </div> 
-                <div class="form-group">
-                    {{Form::file('node_image')}}
                 </div>
+                <br>
+                <div style="padding:20px;">
+                    <div class="col-sm-4" style="text-align:right;">
+                        {{Form::label('image','Insert image :')}}
+                    </div>
+                    <div class="form-group">
+                        {{Form::file('node_image')}}
+                    </div>
+                </div>                 
                 <hr>
 
                 {{Form::submit('Submit', ['class' => 'btn btn-primary pull-right'])}}                  
