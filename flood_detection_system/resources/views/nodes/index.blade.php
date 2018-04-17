@@ -38,8 +38,7 @@
                                     {{$singledata->current_level}}
                                 @else
                                 @endif
-                            @endforeach
-                            
+                            @endforeach                            
                         </td>
                         <td>
                             @foreach($data as $singledata)
