@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Nodes;
+use App\data;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,31 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //List nodes
-Route::get('nodes', 'NodesController@index');
+Route::get('nodes', function (){
+    return Nodes::all();
+});
 
 //single node
-Route::get('nodes/{id}', 'NodesController@show');
+Route::get('nodes/{river_id}/{lati}/{long}', function($river_id, $lati, $long){
+    $infos = Nodes::all();
+    $minDist = 0; 
+    $minID = 0;
+    foreach ($infos as $info){
+        if($info->river_id == $river_id){
+            if($minDist == 0){
+                $minDist = ((($info->latitude)-$lati)*(($info->latitude)-$lati))+((($info->longitude)-$long)*(($info->longitude)-$long));
+                $minID = $info->id;
+            } else {
+                $tmp = ((($info->latitude)-$lati)*(($info->latitude)-$lati))+((($info->longitude)-$long)*(($info->longitude)-$long));
+                if($tmp < $minDist){
+                    $minDist = $tmp;
+                    $minID = $info->id;
+                }
+            }
+        }
+        
+    }
+    //return $minID;
+    return data::where('node_id', '=', $minID)->first();
+
+});
