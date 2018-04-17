@@ -43,6 +43,7 @@ Route::get('nodes/{river_id}/{lati}/{long}', function($river_id, $lati, $long){
         }
         
     }
+    //return $minID;
     return data::where('node_id', '=', $minID)->first();
 
 });
