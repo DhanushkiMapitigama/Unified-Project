@@ -23,7 +23,6 @@ Route::get('nodes', function (){
     return Nodes::all();
 });
 
-
 //single node
 Route::get('nodes/{river_id}/{lati}/{long}', function($river_id, $lati, $long){
     $infos = Nodes::all();
