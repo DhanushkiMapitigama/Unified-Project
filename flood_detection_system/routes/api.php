@@ -23,6 +23,24 @@ Route::get('nodes', function (){
     return Nodes::all();
 });
 
+Route::get('api_data', function(){
+    $infop = nodes::all();
+    $datap = data::all();
+    $nodes = array();
+    foreach($infop as $infos){
+        $comb = array('ID' => $infos->id, 'name' => $infos->station_name, 'alert_level' => $infos->alert_level, 'minor_level' => $infos->minor_level, 'major_level' => $infos->major_level,  'level' => '', 'velocity' => '');
+        foreach($datap as $datas){
+            if($infos->id == $datas->node_id){
+                $comb['level'] = $datas->current_level;
+                $comb['velocity'] = $datas->velocity;
+                break;
+            }
+        }
+        $nodes[] = $comb;
+    }  
+    return $nodes;      
+})->name('api_data');
+
 //single node
 Route::get('nodes/{river_id}/{lati}/{long}', function($river_id, $lati, $long){
     $infos = Nodes::all();

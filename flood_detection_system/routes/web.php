@@ -13,6 +13,8 @@
 Route::get('/','PagesController@index');
 Route::get('/level','PagesController@level');
 Route::resource('nodes', 'NodesController');
+Route::get('/ajax','NodesController@ajaxURL')->name('ajaxURL');
+    
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -20,3 +22,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
