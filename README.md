@@ -1,4 +1,4 @@
-# Unified-Project
+# Unified-Project Embedded, security, network and web applications
 Flood detection and safety prediction system through water level and velocity monitoring
 
 Hardware components:
