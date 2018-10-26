@@ -23,7 +23,7 @@ class NodesController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth', ['except' => ['index', 'show','ajaxURL']]);
     }
 
     /**
@@ -39,6 +39,12 @@ class NodesController extends Controller
         return view('nodes.index')->with('nodes', $nodes)->with('rivers',$rivers)->with('data', $data);
     }
 
+    public function ajaxURL(){
+        $nodes = Nodes::all();
+        $rivers = Rivers::all();
+        $data = data::all();
+        return view('nodes.ajax')->with('nodes', $nodes)->with('rivers',$rivers)->with('data', $data);
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Grayscale - Start Bootstrap Theme</title>
+        <title>flood detection system</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="{{URL::asset('jigibigs/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
